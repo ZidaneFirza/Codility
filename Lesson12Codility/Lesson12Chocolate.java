@@ -1,30 +1,29 @@
-import java.util.ArrayList;
-
 public class Lesson12Chocolate {
 	
 	public static int solution(int n, int m) {
-		ArrayList<Integer> arrEaten = new ArrayList<>();
+		int a = n;
+		int b = m;
+		int c = 0;
+		int gcd = 0;
 		
-		int eat = 0;
+		boolean run = true;
 		
-		arrEaten.add(eat);
-		
-		for(int i =0; i < n;i++) {
-			eat = (eat + m) % n;
-			
-			if(arrEaten.contains(eat)) {
-				return arrEaten.size();
+		while(run) {
+			c = a % b;
+			if(c == 0) {
+				gcd = b;
+				break;
 			}
 			
-			arrEaten.add(eat);
-			
+			a = b;
+			b = c;
 		}
 		
-		return 0;
+		return n / gcd;
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(solution(10, 4));
+		System.out.println(solution(212, 4));
 		
 	}
 
